@@ -119,9 +119,7 @@ class ComputerUseToolkit(BaseToolkit):
             )
 
         self._docker_client = docker.from_env()
-        self._docker_api_client = docker.APIClient(
-            base_url="unix://var/run/docker.sock"
-        )
+        self._docker_api_client = self._docker_client.api
 
         # Try to find an existing container with our name
         try:

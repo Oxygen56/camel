@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Start Xvfb on display :99 with a minimal window manager
-COPY <<EOF /entrypoint.sh
+COPY <<'EOF' /entrypoint.sh
 #!/bin/bash
 set -e
 Xvfb :99 -screen 0 "${WIDTH:-1280}x${HEIGHT:-720}x24" &
